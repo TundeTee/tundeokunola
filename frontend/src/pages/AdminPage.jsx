@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { apiMe, listComplaints, respondComplaint, deleteComplaint } from '../api.js';
 
 function AdminPage() {
@@ -10,18 +11,25 @@ function AdminPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+  const [authRequired, setAuthRequired] = useState(false);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    navigate('/admin/auth');
+  };
 
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (!token) {
-      setError('Admin access required. Please login.');
+      setAuthRequired(true);
       setLoading(false);
       return;
     }
     apiMe(token)
       .then(({ user }) => {
         if (user.role !== 'admin') {
-          setError('Not authorized. Admin access required.');
+          setAuthRequired(true);
           setLoading(false);
           return;
         }
@@ -76,12 +84,35 @@ function AdminPage() {
     return <div className="container mx-auto px-4 py-8">Loading...</div>;
   }
 
-  if (error && !user) {
+  if (error) {
     return <div className="container mx-auto px-4 py-8 text-red-700">{error}</div>;
+  }
+  if (authRequired) {
+    return (
+      <div className="container mx-auto px-4 py-8 mb-14">
+        <h1 className="text-2xl font-semibold mb-4">Admin Access Required</h1>
+        <p className="mb-4">Please login as admin to continue.</p>
+        <Link
+          to="/admin/auth"
+          className="inline-block px-3 py-2 rounded bg-blue-600 text-white hover:bg-blue-700"
+        >
+          Go to Admin Login
+        </Link>
+      </div>
+    );
   }
 
   return (
-    <div className="container mx-auto px-4 py-8 mb-10 relative">
+    <div className="container mx-auto px-4 py-8">
+      <div className="flex items-center justify-between mb-4">
+        <h1 className="text-2xl font-semibold">Admin Dashboard</h1>
+        <button
+          onClick={handleLogout}
+          className="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300"
+        >
+          Logout
+        </button>
+      </div>
       <h1 className="text-2xl font-semibold mb-4">Admin: Complaints</h1>
 
       {success && <div className="mb-3 rounded bg-green-50 border border-green-200 p-2 text-green-800">{success}</div>}
