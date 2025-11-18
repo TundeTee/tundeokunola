@@ -25,9 +25,14 @@ app.get('/api/health', (req, res) => res.json({ status: 'ok' }));
 app.use('/api/auth', authRoutes);
 app.use('/api/complaints', complaintRoutes);
 
-app.listen(PORT, () => {
+// Only listen locally; export app for Vercel serverless
+if (!process.env.VERCEL) {
+  app.listen(PORT, () => {
     console.log(`Server on http://localhost:${PORT}`);
-})
+  });
+}
+
+export default app;
 
 
 
