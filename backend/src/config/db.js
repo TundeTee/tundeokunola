@@ -6,6 +6,7 @@ export const connectDB = async () => {
         console.log("MongoDB connected successfully");
     }catch(err) {
         console.error("MongoDB connection failed", err);
+        // Consider not calling process.exit(1) in serverless to avoid 502s
         process.exit(1);
     }
 };

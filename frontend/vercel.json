@@ -8,7 +8,9 @@
         }
     ],
     "rewrites": [
-        { "source": "/api/(.*)", "destination": "https://<YOUR_BACKEND_PROJECT>.vercel.app/api/$1" },
+        { "source": "/api/(.*)", "destination": "https://tundeokunola.vercel.app/api/$1" },
         { "source": "/(.*)", "destination": "/" }
     ]
 }
+
+
