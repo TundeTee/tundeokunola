@@ -40,8 +40,8 @@ function ContactPage() {
   };
 
   return (
-<section className="relative">
-      <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 text-center mt-6 mb-14">
+<section className="relative ">
+      <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 text-center mt-6 mb-16">
         <div className="flex flex-col items-center text-center space-y-4">
           <p>
             TRUST YOUR LAW CASE TO OUR EXPERIENCED TEAM.
