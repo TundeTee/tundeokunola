@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ComplaintChat from "../common/ComplaintChat";
+import { postComplaint } from "../api.js";
 
 function ContactPage() {
   const [lastname, setLastname] = useState("");
@@ -20,23 +21,12 @@ function ContactPage() {
     }
     const token = localStorage.getItem("token");
     if (!token) {
-      // Not logged in → open modal to login/register, carry over the message
       setIsComplaintOpen(true);
       return;
     }
     try {
       setIsSubmitting(true);
-      // Send directly if already logged in
-      const res = await fetch("/api/complaints", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
-        body: JSON.stringify({ message: complaint }),
-      });
-      if (!res.ok) {
-        const err = await res.json().catch(() => ({ error: "Submit failed" }));
-        throw new Error(err.error || "Submit failed");
-      }
-      await res.json();
+      const res = await postComplaint({ token, message: complaint });
       setSuccess("Your complaint has been sent.");
       setComplaint("");
       setLastname("");
