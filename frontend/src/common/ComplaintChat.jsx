@@ -115,11 +115,11 @@ function ComplaintChat({ onClose }) {
 
         <div className="flex-1 p-4 overflow-y-auto overscroll-auto space-y-4">
           <div className="flex gap-2">
-            <button className={`px-3 py-1 rounded ${mode==='login'?'bg-blue-600 text-white':'bg-gray-200'}`} onClick={() => setMode('login')}>Login</button>
-            <button className={`px-3 py-1 rounded ${mode==='register'?'bg-blue-600 text-white':'bg-gray-200'}`} onClick={() => setMode('register')}>Register</button>
-            <button className={`px-3 py-1 rounded ${mode==='compose'?'bg-blue-600 text-white':'bg-gray-200'}`} onClick={() => setMode('compose')} disabled={!user}>Compose</button>
+            <button className={`px-3 py-1 rounded ${mode==='login'?'bg-blue-300 text-white':'bg-gray-200'}`} onClick={() => setMode('login')}>Login</button>
+            <button className={`px-3 py-1 rounded ${mode==='register'?'bg-blue-300 text-white':'bg-gray-200'}`} onClick={() => setMode('register')}>Register</button>
+            <button className={`px-3 py-1 rounded ${mode==='compose'?'bg-blue-300 text-white':'bg-gray-200'}`} onClick={() => setMode('compose')} disabled={!user}>Compose</button>
             {user?.role === 'admin' && (
-              <button className={`px-3 py-1 rounded ${mode==='admin'?'bg-blue-600 text-white':'bg-gray-200'}`} onClick={() => setMode('admin')}>Admin Reply</button>
+              <button className={`px-3 py-1 rounded ${mode==='admin'?'bg-blue-300 text-white':'bg-gray-200'}`} onClick={() => setMode('admin')}>Admin Reply</button>
             )}
           </div>
 
@@ -136,7 +136,7 @@ function ComplaintChat({ onClose }) {
                 <label htmlFor="login-password" className="block text-sm font-medium text-gray-700">Password</label>
                 <input id="login-password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required className="mt-1 block w-full rounded-md border px-3 py-2" />
               </div>
-              <button type="submit" disabled={isSubmitting} className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white py-2 px-6 rounded-md">{isSubmitting ? 'Logging in...' : 'Login'}</button>
+              <button type="submit" disabled={isSubmitting} className="w-full bg-blue-300 hover:bg-blue-400 disabled:bg-blue-400 text-white py-2 px-6 rounded-md">{isSubmitting ? 'Logging in...' : 'Login'}</button>
             </form>
           )}
 
@@ -154,7 +154,7 @@ function ComplaintChat({ onClose }) {
                 <label htmlFor="reg-password" className="block text-sm font-medium text-gray-700">Password</label>
                 <input id="reg-password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required className="mt-1 block w-full rounded-md border px-3 py-2" />
               </div>
-              <button type="submit" disabled={isSubmitting} className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white py-2 px-6 rounded-md">{isSubmitting ? 'Registering...' : 'Register'}</button>
+              <button type="submit" disabled={isSubmitting} className="w-full bg-blue-300 hover:bg-blue-400 disabled:bg-blue-400 text-white py-2 px-6 rounded-md">{isSubmitting ? 'Registering...' : 'Register'}</button>
             </form>
           )}
 
@@ -164,7 +164,7 @@ function ComplaintChat({ onClose }) {
                 <label htmlFor="complaint-message" className="block text-sm font-medium text-gray-700">Your Complaint *</label>
                 <textarea id="complaint-message" rows={5} value={message} onChange={(e) => setMessage(e.target.value)} required className="mt-1 block w-full rounded-md border px-3 py-2 resize-y" />
               </div>
-              <button type="submit" disabled={isSubmitting || !message.trim()} className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white py-2 px-6 rounded-md">{isSubmitting ? 'Sending...' : 'Send Complaint'}</button>
+              <button type="submit" disabled={isSubmitting || !message.trim()} className="w-full bg-blue-300 hover:bg-blue-400 disabled:bg-blue-400 text-white py-2 px-6 rounded-md">{isSubmitting ? 'Sending...' : 'Send Complaint'}</button>
 
               <div className="mt-4">
                 <div className="text-sm font-medium mb-2">Your Complaints</div>
@@ -204,7 +204,7 @@ function ComplaintChat({ onClose }) {
                   <label htmlFor="reply-text" className="block text-sm font-medium text-gray-700">Reply</label>
                   <textarea id="reply-text" rows={5} value={replyText} onChange={(e) => setReplyText(e.target.value)} className="mt-1 block w-full rounded-md border px-3 py-2 resize-y" />
                 </div>
-                <button type="submit" disabled={isSubmitting || !replyText.trim() || !selectedId} className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white py-2 px-6 rounded-md">{isSubmitting ? 'Replying...' : 'Send Reply'}</button>
+                <button type="submit" disabled={isSubmitting || !replyText.trim() || !selectedId} className="w-full bg-blue-300 hover:bg-blue-400 disabled:bg-blue-400 text-white py-2 px-6 rounded-md">{isSubmitting ? 'Replying...' : 'Send Reply'}</button>
               </form>
             </div>
           )}

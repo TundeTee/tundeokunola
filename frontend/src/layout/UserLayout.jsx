@@ -18,7 +18,7 @@ const [openComplaint, setOpenComplaint] = useState(false);
         <div className="fixed bottom-6 right-6 z-50">
         <button
           onClick={() => setOpenComplaint(true)}
-          className="bg-blue-600 hover:bg-blue-700 text-white rounded-full p-4 shadow-lg transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-gray-500"
+          className="bg-blue-300 hover:bg-blue-400 text-white rounded-full p-4 shadow-lg transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-gray-500"
           aria-label="Open complaint chat"
         >
           {/* Chat bubble icon */}

@@ -54,8 +54,8 @@ function AdminAuth() {
       <h1 className="text-2xl font-semibold mb-4">Admin Access</h1>
 
       <div className="flex gap-2 mb-4">
-        <button className={`px-3 py-1 rounded ${mode==='login'?'bg-blue-600 text-white':'bg-gray-200'}`} onClick={() => setMode('login')}>Login</button>
-        <button className={`px-3 py-1 rounded ${mode==='register'?'bg-blue-600 text-white':'bg-gray-200'}`} onClick={() => setMode('register')}>Register</button>
+        <button className={`px-3 py-1 rounded ${mode==='login'?'bg-blue-300 text-white':'bg-gray-200'}`} onClick={() => setMode('login')}>Login</button>
+        <button className={`px-3 py-1 rounded ${mode==='register'?'bg-blue-300 text-white':'bg-gray-200'}`} onClick={() => setMode('register')}>Register</button>
       </div>
 
       {success && <div className="mb-3 rounded bg-green-50 border border-green-200 p-2 text-green-800">{success}</div>}
@@ -71,7 +71,7 @@ function AdminAuth() {
             <label htmlFor="admin-password" className="block text-sm font-medium text-gray-700">Password</label>
             <input id="admin-password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required className="mt-1 block w-full rounded-md border px-3 py-2" />
           </div>
-          <button type="submit" disabled={isSubmitting} className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white py-2 px-6 rounded-md">
+          <button type="submit" disabled={isSubmitting} className="w-full bg-blue-300 hover:bg-blue-400 disabled:bg-blue-400 text-white py-2 px-6 rounded-md">
             {isSubmitting ? 'Logging in...' : 'Login'}
           </button>
         </form>
@@ -95,7 +95,7 @@ function AdminAuth() {
             <label htmlFor="admin-code" className="block text-sm font-medium text-gray-700">Admin Invite Code</label>
             <input id="admin-code" type="text" value={adminCode} onChange={(e) => setAdminCode(e.target.value)} required className="mt-1 block w-full rounded-md border px-3 py-2" placeholder="Enter admin invite code" />
           </div>
-          <button type="submit" disabled={isSubmitting} className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white py-2 px-6 rounded-md">
+          <button type="submit" disabled={isSubmitting} className="w-full bg-blue-300 hover:bg-blue-400 disabled:bg-blue-400 text-white py-2 px-6 rounded-md">
             {isSubmitting ? 'Registering...' : 'Register as Admin'}
           </button>
         </form>

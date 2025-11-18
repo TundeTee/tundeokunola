@@ -84,7 +84,7 @@ function AdminPage() {
     return <div className="container mx-auto px-4 py-8">Loading...</div>;
   }
 
-  if (error) {
+  if (error && !user) {
     return <div className="container mx-auto px-4 py-8 text-red-700">{error}</div>;
   }
   if (authRequired) {
@@ -94,7 +94,7 @@ function AdminPage() {
         <p className="mb-4">Please login as admin to continue.</p>
         <Link
           to="/admin/auth"
-          className="inline-block px-3 py-2 rounded bg-blue-600 text-white hover:bg-blue-700"
+          className="inline-block px-3 py-2 rounded bg-blue-300 text-white hover:bg-blue-400"
         >
           Go to Admin Login
         </Link>
@@ -108,7 +108,7 @@ function AdminPage() {
         <h1 className="text-2xl font-semibold">Admin Dashboard</h1>
         <button
           onClick={handleLogout}
-          className="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300"
+          className="px-3 py-1 rounded bg-red-400 hover:bg-gray-300"
         >
           Logout
         </button>
@@ -118,14 +118,14 @@ function AdminPage() {
       {success && <div className="mb-3 rounded bg-green-50 border border-green-200 p-2 text-green-800">{success}</div>}
       {error && <div className="mb-3 rounded bg-red-50 border border-red-200 p-2 text-red-800">{error}</div>}
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative mb-6">
         <div>
           <div className="text-sm font-medium mb-2">Complaint List</div>
           <ul className="space-y-2">
             {complaints.map((c) => (
               <li
                 key={c._id}
-                className={`p-3 border rounded flex items-start justify-between gap-3 ${selectedId === c._id ? 'border-blue-500' : 'border-gray-300'}`}
+                className={`p-3 border rounded flex items-start justify-between gap-3 ${selectedId === c._id ? 'border-blue-300' : 'border-gray-300'}`}
               >
                 <button className="text-left flex-1" onClick={() => setSelectedId(c._id)}>
                   <div className="font-semibold">{c.email}</div>
