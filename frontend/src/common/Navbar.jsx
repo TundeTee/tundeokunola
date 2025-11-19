@@ -32,7 +32,7 @@ const Navbar = () => {
     <>
       <nav className='container mx-auto flex items-center justify-between py-7 px-9 '>
         <div>
-          <Link className="text-2xl font-bold"> Tunde Taiwo Okunola <span className='text-sm text-blue-300'>Esq.</span></Link>
+          <Link to='/' className="text-2xl font-bold"> Tunde Taiwo Okunola <span className='text-sm text-blue-300'>Esq.</span></Link>
         </div>
         <div className='hidden md:flex space-x-6'>
           <NavLink to='/' end className={({ isActive }) =>
