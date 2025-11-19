@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { HiBars3BottomRight } from 'react-icons/hi2';
 import { IoMdClose } from 'react-icons/io';
@@ -32,7 +32,7 @@ const Navbar = () => {
     <>
       <nav className='container mx-auto flex items-center justify-between py-7 px-9 '>
         <div>
-          <Link to='/' className="text-2xl font-bold"> Tunde Taiwo Okunola <span className='text-sm text-blue-300'>Esq.</span></Link>
+          <NavLink to='/' className="text-2xl font-bold"> Tunde Taiwo Okunola <span className='text-sm text-blue-300'>Esq.</span></NavLink>
         </div>
         <div className='hidden md:flex space-x-6'>
           <NavLink to='/' end className={({ isActive }) =>
