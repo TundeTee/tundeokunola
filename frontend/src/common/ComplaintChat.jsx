@@ -188,7 +188,7 @@ function ComplaintChat({ onClose }) {
                 <div className="text-sm font-medium mb-2">Complaints</div>
                 <ul className="space-y-2 max-h-[50vh] overflow-y-auto overscroll-auto pr-1">
                   {complaints.map(c => (
-                    <li key={c._id} className={`p-2 border rounded ${selectedId===c._id?'border-blue-500':'border-gray-300'}`}>
+                    <li key={c._id} className={`p-2 border rounded ${selectedId===c._id?'border-blue-300':'border-gray-300'}`}>
                       <button className="text-left w-full" onClick={() => setSelectedId(c._id)}>
                         <div className="font-semibold">{c.email}</div>
                         <div className="text-sm text-gray-600">{c.message}</div>
