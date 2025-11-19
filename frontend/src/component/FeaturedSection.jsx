@@ -2,7 +2,7 @@ import React from 'react'
 
 const FeaturedSection = () => {
   return (
-    <section className='py-16 px-4 bg-white relative top-4'>
+    <section className='py-16 px-4 bg-white relative mt-4 mb-12'>
     <div className="container mx-auto grid grid-cols-1 lg:grid-cols-4 gap-8 text-center ">
     <div className="flex flex-col items-center bg-gray-300 h-full w-full pb-5">
         <h1 className='font-bold text-2xl italic p-2'>01.</h1>
